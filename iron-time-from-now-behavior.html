@@ -1,0 +1,51 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script src='../moment/min/moment-with-locales.min.js'></script>
+<script>
+var Polymer = Polymer || {};
+
+/**
+ * Provides method to formas date/time to brackets like today, yesterday, this week.
+ *
+ * The output will be localized by the [momentjs](http://momentjs.com) library.
+ *
+ * @polymerBehavior Polymer.PaperDatePickerItemBehavior
+ */
+ Polymer.IronTimeFromNowBehavior = {
+	/**
+	 * Returns a text describing the difference between now and the date
+	 */
+	fromNow: function(rawDate) {
+		return this._fromNow(rawDate, new Date());
+	},
+
+	/**
+	 * For testing
+	 */
+	_fromNow: function(rawDate, rawNow) {
+		var date = moment(rawDate);
+		var now = moment(rawNow);
+
+		if (date.isSame(now, 'day')) {
+			return 'Today';
+		}
+		if (now.diff(date, 'day') < 2) {
+			return 'Yesterday';
+		}
+		if (date.isSame(now, 'week')) {
+			return 'This week';
+		}
+		if (date.isSame(now, 'month')) {
+			return 'This month';
+		}
+		if (now.diff(date, 'month') <= 9) {
+			return date.format('MMMM YYYY');
+		}
+		if (date.isSame(now, 'year')) {
+			return 'This year';
+		}
+
+		return 'Earlier';
+	}
+};
+</script>

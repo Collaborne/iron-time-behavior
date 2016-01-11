@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+Taken over from https://github.com/polymerelements/iron-icons
+-->
+<html>
+<head>
+    <title>iron-time-behavior</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src='../../moment/min/moment-with-locales.min.js'></script>
+
+    <link href="../../paper-styles/demo-pages.html" rel="import">
+    <link rel="import" href="test-time.html">
+
+</head>
+<body>
+
+    <template is="dom-bind">
+        <h2>Now: [[format(now)]]</h2>
+
+        <h2>Examples</h2>
+
+        <template is="dom-repeat" items=[[dates]] as='date'>
+            <pre>[[format(date)]] => <b><test-time date=[[date]] now=[[now]]></test-time></b></pre>
+        </template>
+    </template>
+
+    <script>
+        var scope = document.querySelector('[is=dom-bind]');
+        scope.now = moment('2016-02-11'); // Thursday
+        scope.dates = [
+            moment('2016-02-11'), // Thursday
+            moment('2016-02-10'), // Wednesday
+            moment('2016-02-09'), // Tuesday
+            moment('2016-02-01'), // Begin month
+            moment('2016-01-31'), // Last month
+            moment('2015-05-01'), // 9 months ago
+            moment('2015-04-01')  // More than 9 months ago
+        ];
+
+        scope.format = function(date) {
+            return moment(date).format('ddd, MMM-DD YYYY');
+        }
+    </script>
+
+</body>
+</html>

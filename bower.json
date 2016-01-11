@@ -1,0 +1,31 @@
+{
+  "name": "iron-time-behavior",
+  "version": "1.0.0",
+  "authors": [
+    "collaborne"
+  ],
+  "description": "Polymer 1.x behavior that provides time-from-now string, e.g. today, yesterday, this week, ealier",
+  "main": "iron-time-from-now-behavior.html",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "time",
+    "date",
+    "formatting"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/collaborne/iron-time-behavior",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "moment": "^2.8.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+    "web-component-tester": "*",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}
