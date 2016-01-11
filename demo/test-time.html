@@ -1,0 +1,28 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../iron-time-from-now-behavior.html">
+<script src='../../moment/min/moment-with-locales.min.js'></script>
+
+<dom-module id="test-time">
+
+  <template>[[_fromNow(date, now)]]</template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'test-time',
+
+    properties: {
+        date: Date,
+        now: Date
+    },
+
+    behaviors: [
+        Polymer.IronTimeFromNowBehavior
+    ]
+
+  });
+
+</script>

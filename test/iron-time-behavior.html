@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<title>iron-time-behavior</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../test-fixture/test-fixture-mocha.js"></script>
+		<script src='../../moment/min/moment-with-locales.min.js'></script>
+		<link rel="import" href="../../test-fixture/test-fixture.html">
+
+		<link rel="import" href="test-iron-time-from-now.html">
+	</head>
+	<body>
+
+		<test-fixture id="TrivialElement">
+			<template>
+				<test-iron-time-from-now></test-iron-time-from-now>
+			</template>
+		</test-fixture>
+
+		<script>
+			suite('<iron-time-behavior>', function() {
+				suite('formatting behavior', function() {
+					var element;
+					var now;
+
+					setup(function() {
+						element = fixture('TrivialElement');
+						now = moment('2016-02-11'); // Thursday
+
+						// Fix locale to be independent of execution environment
+						moment.locale('en');
+					});
+
+					test('returns today', function() {
+						expect(element._fromNow(moment('2016-02-11'), now)).to.be.eql('Today');
+					});
+					test('returns yesterday', function() {
+						expect(element._fromNow(moment('2016-02-10'), now)).to.be.eql('Yesterday');
+					});
+					test('returns this week', function() {
+						expect(element._fromNow(moment('2016-02-09'), now)).to.be.eql('This week');
+					});
+					test('returns this month', function() {
+						expect(element._fromNow(moment('2016-02-01'), now)).to.be.eql('This month');
+					});
+					test('returns month/date for last month', function() {
+						expect(element._fromNow(moment('2016-01-31'), now)).to.be.eql('January 2016');
+					});
+					test('returns month/date for month up to 9 months ago', function() {
+						expect(element._fromNow(moment('2015-05-01'), now)).to.be.eql('May 2015');
+					});
+					test('returns earlier for more than 9 months ago', function() {
+						expect(element._fromNow(moment('2015-04-01'), now)).to.be.eql('Earlier');
+					});
+
+					test('uses today as reference', function() {
+						expect(element.fromNow(new Date())).to.be.eql('Today');
+					});
+				});
+			});
+		</script>
+
+	</body>
+</html>
