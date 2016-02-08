@@ -13,6 +13,17 @@ To use this element:
 `bower install iron-time-behavior`
 
 
+## i18n Support
+
+`iron-time-behavior` uses [Moment.js](http://momentjs.com), and so supports all locales that Moment.js supports. But,
+the component does not reference any specific locale, so when you want to use it with a locale other than `en` you must
+load the locales explicitly.
+
+~~~~
+<link rel="import" href="bower_components/iron-time-behavior/iron-time-behavior.html">
+<script src="bower_components/moment/min/locales.js"></script>
+~~~~
+
 ## License
 
     This software is licensed under the Apache 2 license, quoted below.
