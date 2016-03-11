@@ -1,0 +1,51 @@
+<!doctype html>
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../iron-time-from-now-behavior.html">
+<script src="../../moment/min/moment-with-locales.min.js"></script>
+
+<dom-module id="localized-test-time">
+
+  <template>[[_timeFromNow]]</template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'localized-test-time',
+
+    properties: {
+        date: Date,
+        now: Date,
+
+        _i18n: Object,
+        _timeFromNow: {
+            type: String,
+            computed: '_computeTimeFromNow(date, now, _i18n)'
+        }
+    },
+
+    behaviors: [
+        Polymer.IronTimeFromNowBehavior
+    ],
+
+    ready: function() {
+        this._i18n = Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, {
+            today: 'Heute',
+            yesterday: 'Gestern',
+            week: 'Diese Woche',
+            month: 'Diesen Monat',
+            recent_months: function(date) { return 'In den letzten Monaten'; },
+            year: 'Dieses Jahr',
+            earlier: 'Vorher'
+        });
+    },
+
+    _computeTimeFromNow: function(date, now, _i18n) {
+        return this._fromNow(date, now, _i18n);
+    }
+
+  });
+
+</script>

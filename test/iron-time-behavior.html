@@ -61,6 +61,27 @@
 						expect(element.fromNow(new Date())).to.be.eql('Today');
 					});
 				});
+
+				suite('localization behavior', function() {
+					var element;
+					var now;
+
+					setup(function() {
+						element = fixture('TrivialElement');
+						now = moment('2016-02-11'); // Thursday
+
+						// Fix locale to be independent of execution environment
+						moment.locale('en');
+					});
+
+					test('defaults localization', function() {
+						expect(element._fromNow(moment('2016-02-11'), now)).to.be.eql('Today');
+					});
+
+					test('returns localized strings', function() {
+						expect(element._fromNow(moment('2016-02-11'), now, { today: 'Heute' })).to.be.eql('Heute');
+					});
+				});
 			});
 		</script>
 

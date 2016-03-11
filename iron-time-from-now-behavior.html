@@ -6,6 +6,20 @@
 var Polymer = Polymer || {};
 
 /**
+ * Default localization (en-US). Custom the localization via:
+ * `Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, { today: 'Heute' });`
+ */
+Polymer.IronTimeFromNowBehaviorDefaultI18n = {
+    today: 'Today',
+    yesterday: 'Yesterday',
+    week: 'This week',
+    month: 'This month',
+    recent_months: function(date) { return date.format('MMMM YYYY'); },
+    year: 'This year',
+    earlier: 'Earlier'
+};
+
+/**
  * Provides method to formas date/time to brackets like today, yesterday, this week.
  *
  * The output will be localized by the [momentjs](http://momentjs.com) library.
@@ -13,41 +27,45 @@ var Polymer = Polymer || {};
  * @polymerBehavior Polymer.PaperDatePickerItemBehavior
  * @demo demo/index.html
  */
- Polymer.IronTimeFromNowBehavior = {
+Polymer.IronTimeFromNowBehavior = {
+
 	/**
 	 * Returns a text describing the difference between now and the date
 	 */
-	fromNow: function(rawDate) {
-		return this._fromNow(rawDate, new Date());
+	fromNow: function(rawDate, i18n) {
+		return this._fromNow(rawDate, new Date(), i18n);
 	},
 
 	/**
 	 * For testing
 	 */
-	_fromNow: function(rawDate, rawNow) {
+	_fromNow: function(rawDate, rawNow, i18n) {
+        i18n = i18n || Polymer.IronTimeFromNowBehaviorDefaultI18n;
+
 		var date = moment(rawDate);
 		var now = moment(rawNow);
 
 		if (date.isSame(now, 'day')) {
-			return 'Today';
+			return i18n.today;
 		}
 		if (now.diff(date, 'day') < 2) {
-			return 'Yesterday';
+			return i18n.yesterday;
 		}
 		if (date.isSame(now, 'week')) {
-			return 'This week';
+			return i18n.week;
 		}
 		if (date.isSame(now, 'month')) {
-			return 'This month';
+			return i18n.month;
 		}
 		if (now.diff(date, 'month') <= 9) {
-			return date.format('MMMM YYYY');
+			return i18n.recent_months(date);
 		}
 		if (date.isSame(now, 'year')) {
-			return 'This year';
+			return i18n.year;
 		}
 
-		return 'Earlier';
+		return i18n.earlier;
 	}
 };
+
 </script>

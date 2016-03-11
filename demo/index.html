@@ -11,6 +11,7 @@ Taken over from https://github.com/polymerelements/iron-icons
 
     <link href="../../paper-styles/demo-pages.html" rel="import">
     <link rel="import" href="test-time.html">
+    <link rel="import" href="localized-test-time.html">
 
 </head>
 <body>
@@ -18,10 +19,16 @@ Taken over from https://github.com/polymerelements/iron-icons
     <template is="dom-bind">
         <h2>Now: [[format(now)]]</h2>
 
-        <h2>Examples</h2>
+        <h2>Default localization</h2>
 
         <template is="dom-repeat" items="[[dates]]" as="date">
             <pre>[[format(date)]] =&gt; <b><test-time date="[[date]]" now="[[now]]"></test-time></b></pre>
+        </template>
+
+        <h2>Localized</h2>
+
+        <template is="dom-repeat" items="[[dates]]" as="date">
+            <pre>[[format(date)]] =&gt; <b><localized-test-time date="[[date]]" now="[[now]]"></localized-test-time></b></pre>
         </template>
     </template>
 
