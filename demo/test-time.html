@@ -5,7 +5,7 @@
 
 <dom-module id="test-time">
 
-  <template>[[_fromNow(date, now)]]</template>
+  <template>[[fromNow(date, now)]]</template>
 
 </dom-module>
 
@@ -21,7 +21,7 @@ Polymer({
 	},
 
 	behaviors: [
-		Polymer.IronTimeFromNowBehavior
+		Polymer.IronTimeFromNow.Behavior
 	]
 
 });

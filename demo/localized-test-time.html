@@ -27,11 +27,11 @@ Polymer({
 	},
 
 	behaviors: [
-		Polymer.IronTimeFromNowBehavior
+		Polymer.IronTimeFromNow.Behavior
 	],
 
 	ready: function() {
-		this._i18n = Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, {
+		this._i18n = Object.assign(Polymer.IronTimeFromNow.DefaultI18n, {
 			today: 'Heute',
 			yesterday: 'Gestern',
 			week: 'Diese Woche',
@@ -43,7 +43,7 @@ Polymer({
 	},
 
 	_computeTimeFromNow: function(date, now, _i18n) {
-		return this._fromNow(date, now, _i18n);
+		return this.fromNow(date, now, _i18n);
 	}
 
 });

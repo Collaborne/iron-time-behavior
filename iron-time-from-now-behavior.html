@@ -5,67 +5,94 @@
 <script>
 var Polymer = Polymer || {};
 
-/**
- * Default localization (en-US). Custom the localization via:
- * `Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, { today: 'Heute' });`
- */
-Polymer.IronTimeFromNowBehaviorDefaultI18n = {
-	today: 'Today',
-	yesterday: 'Yesterday',
-	week: 'This week',
-	month: 'This month',
-	recent_months: function(date) { return date.format('MMMM YYYY'); },
-	year: 'This year',
-	earlier: 'Earlier'
-};
-
-/**
- * Provides method to formas date/time to brackets like today, yesterday, this week.
- *
- * The output will be localized by the [momentjs](http://momentjs.com) library.
- *
- * @polymerBehavior Polymer.PaperDatePickerItemBehavior
- * @demo demo/index.html
- */
-Polymer.IronTimeFromNowBehavior = {
+(function() {
+	/**
+	 * Brackets to which a date/time can be assigned
+	 * @type {Object}
+	 */
+	const Brackets = {
+		TODAY: 'TODAY',
+		YESTERDAY: 'YESTERDAY',
+		WEEK: 'WEEK',
+		MONTH: 'MONTH',
+		RECENT_MONTHS: 'RECENT_MONTHS',
+		YEAR: 'YEAR',
+		EARLIER: 'EARLIER',
+	};
 
 	/**
-	 * Returns a text describing the difference between now and the date
+	 * Default localization (en-US). Custom the localization via:
+	 * `Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, { today: 'Heute' });`
 	 */
-	fromNow: function(rawDate, i18n) {
-		return this._fromNow(rawDate, new Date(), i18n);
-	},
+	const DefaultI18n = {
+		[ Brackets.TODAY ]: 'Today',
+		[ Brackets.YESTERDAY ]: 'Yesterday',
+		[ Brackets.WEEK ]: 'This week',
+		[ Brackets.MONTH ]: 'This month',
+		[ Brackets.RECENT_MONTHS ]: date => moment(date).format('MMMM YYYY'),
+		[ Brackets.YEAR ]: 'This year',
+		[ Brackets.EARLIER ]: 'Earlier'
+	};
 
 	/**
-	 * For testing
-	 */
-	_fromNow: function(rawDate, rawNow, i18n) {
-		i18n = i18n || Polymer.IronTimeFromNowBehaviorDefaultI18n;
-
-		var date = moment(rawDate);
-		var now = moment(rawNow);
+	* Returns the bracket to which the date should be assigned
+	*/
+	const getBracket = (rawDate, rawNow = new Date()) => {
+		const date = moment(rawDate);
+		const now = moment(rawNow);
 
 		if (date.isSame(now, 'day')) {
-			return i18n.today;
+			return Brackets.TODAY;
 		}
 		if (now.diff(date, 'day') < 2) {
-			return i18n.yesterday;
+			return Brackets.YESTERDAY;
 		}
 		if (date.isSame(now, 'week')) {
-			return i18n.week;
+			return Brackets.WEEK;
 		}
 		if (date.isSame(now, 'month')) {
-			return i18n.month;
+			return Brackets.MONTH;
 		}
 		if (now.diff(date, 'month') <= 9) {
-			return i18n.recent_months(date);
+			return Brackets.RECENT_MONTHS;
 		}
 		if (date.isSame(now, 'year')) {
-			return i18n.year;
+			return Brackets.YEAR;
 		}
 
-		return i18n.earlier;
-	}
-};
+		return Brackets.EARLIER;
+	};
+
+	/**
+	 * Provides method to format date/time to brackets like today, yesterday, this week.
+	 *
+	 * The output will be localized by the [momentjs](http://momentjs.com) library.
+	 *
+	 * @polymerBehavior Polymer.PaperDatePickerItemBehavior
+	 * @demo demo/index.html
+	 */
+	const Behavior = {
+
+		/**
+		 * Returns a text describing the difference between now and the date
+		 */
+		fromNow: function(date, now = new Date(), i18n = DefaultI18n) {
+			const bracket = getBracket(date, now);
+			const i18nValue = i18n[bracket];
+			return typeof i18nValue === 'function' ? i18nValue(date) : i18nValue;
+		},
+
+	};
+
+	/** EXPORT **/
+	Polymer.IronTimeFromNow = {
+		Behavior,
+		Brackets,
+		DefaultI18n,
+		getBracket
+	};
+
+
+})();
 
 </script>
