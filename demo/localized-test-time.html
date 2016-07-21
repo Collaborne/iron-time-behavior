@@ -11,41 +11,41 @@
 
 <script>
 
-  Polymer({
+Polymer({
 
-    is: 'localized-test-time',
+	is: 'localized-test-time',
 
-    properties: {
-        date: Date,
-        now: Date,
+	properties: {
+		date: Date,
+		now: Date,
 
-        _i18n: Object,
-        _timeFromNow: {
-            type: String,
-            computed: '_computeTimeFromNow(date, now, _i18n)'
-        }
-    },
+		_i18n: Object,
+		_timeFromNow: {
+			type: String,
+			computed: '_computeTimeFromNow(date, now, _i18n)'
+		}
+	},
 
-    behaviors: [
-        Polymer.IronTimeFromNowBehavior
-    ],
+	behaviors: [
+		Polymer.IronTimeFromNowBehavior
+	],
 
-    ready: function() {
-        this._i18n = Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, {
-            today: 'Heute',
-            yesterday: 'Gestern',
-            week: 'Diese Woche',
-            month: 'Diesen Monat',
-            recent_months: function(date) { return 'In den letzten Monaten'; },
-            year: 'Dieses Jahr',
-            earlier: 'Vorher'
-        });
-    },
+	ready: function() {
+		this._i18n = Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, {
+			today: 'Heute',
+			yesterday: 'Gestern',
+			week: 'Diese Woche',
+			month: 'Diesen Monat',
+			recent_months: function(date) { return 'In den letzten Monaten'; },
+			year: 'Dieses Jahr',
+			earlier: 'Vorher'
+		});
+	},
 
-    _computeTimeFromNow: function(date, now, _i18n) {
-        return this._fromNow(date, now, _i18n);
-    }
+	_computeTimeFromNow: function(date, now, _i18n) {
+		return this._fromNow(date, now, _i18n);
+	}
 
-  });
+});
 
 </script>
