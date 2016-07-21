@@ -10,13 +10,13 @@ var Polymer = Polymer || {};
  * `Object.assign(Polymer.IronTimeFromNowBehaviorDefaultI18n, { today: 'Heute' });`
  */
 Polymer.IronTimeFromNowBehaviorDefaultI18n = {
-    today: 'Today',
-    yesterday: 'Yesterday',
-    week: 'This week',
-    month: 'This month',
-    recent_months: function(date) { return date.format('MMMM YYYY'); },
-    year: 'This year',
-    earlier: 'Earlier'
+	today: 'Today',
+	yesterday: 'Yesterday',
+	week: 'This week',
+	month: 'This month',
+	recent_months: function(date) { return date.format('MMMM YYYY'); },
+	year: 'This year',
+	earlier: 'Earlier'
 };
 
 /**
@@ -40,7 +40,7 @@ Polymer.IronTimeFromNowBehavior = {
 	 * For testing
 	 */
 	_fromNow: function(rawDate, rawNow, i18n) {
-        i18n = i18n || Polymer.IronTimeFromNowBehaviorDefaultI18n;
+		i18n = i18n || Polymer.IronTimeFromNowBehaviorDefaultI18n;
 
 		var date = moment(rawDate);
 		var now = moment(rawNow);
