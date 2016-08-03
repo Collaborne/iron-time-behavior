@@ -3,7 +3,7 @@ sudo: false
 node_js:
 - stable
 addons:
-  firefox: '42.0'
+  firefox: 47.0.1
 cache:
   directories:
   - node_modules
