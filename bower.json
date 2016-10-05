@@ -19,7 +19,7 @@
 	],
 	"dependencies": {
 		"polymer": "Polymer/polymer#^1.0.0",
-		"moment-element": "Collaborne/moment-element#fix/min-ref"
+		"moment-element": "bendavis78/moment-element#^1.1.1"
 	},
 	"devDependencies": {
 		"iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
