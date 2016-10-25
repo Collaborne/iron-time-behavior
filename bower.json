@@ -18,13 +18,12 @@
 		"**/.*"
 	],
 	"dependencies": {
-		"polymer": "Polymer/polymer#^1.0.0",
-		"moment-element": "bendavis78/moment-element#^1.1.1"
+		"moment-element": "bendavis78/moment-element#^1.1.1",
+		"polymer": "Polymer/polymer#^1.0.0"
 	},
 	"devDependencies": {
 		"iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
 		"test-fixture": "PolymerElements/test-fixture#^1.0.0",
-		"wct-local": "Polymer/wct-local#3820b3c5f1b0f9e68b4d34497a882cba63745d21",
 		"web-component-tester": "*",
 		"webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
 	}
