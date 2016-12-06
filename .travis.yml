@@ -12,7 +12,7 @@ cache:
   - node_modules
   - "$HOME/.cache/bower"
 before_script:
-- npm install web-component-tester bower polylint
+- npm install web-component-tester bower@1.7.9 polylint
 - $(npm bin)/bower install
 - $(npm bin)/polylint --no-recursion
 script:
