@@ -1,30 +1,32 @@
 {
-	"name": "iron-time-behavior",
-	"authors": [
-		"collaborne"
-	],
-	"description": "Polymer 1.x behavior that provides time-from-now string, e.g. today, yesterday, this week, ealier",
-	"main": "iron-time-from-now-behavior.html",
-	"keywords": [
-		"web-components",
-		"polymer",
-		"time",
-		"date",
-		"formatting"
-	],
-	"license": "Apache 2",
-	"homepage": "https://github.com/collaborne/iron-time-behavior",
-	"ignore": [
-		"**/.*"
-	],
-	"dependencies": {
-		"moment-element": "bendavis78/moment-element#^1.1.1",
-		"polymer": "Polymer/polymer#^1.0.0"
-	},
-	"devDependencies": {
-		"iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-		"test-fixture": "PolymerElements/test-fixture#^1.0.0",
-		"web-component-tester": "*",
-		"webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
-	}
+  "name": "iron-time-behavior",
+  "authors": [
+    "collaborne"
+  ],
+  "description": "Polymer behavior that provides time-from-now string, e.g. today, yesterday, this week, ealier",
+  "main": "iron-time-from-now-behavior.html",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "time",
+    "date",
+    "formatting"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/collaborne/iron-time-behavior",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "moment-element": "bendavis78/moment-element#^1.1.1",
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
+    "web-component-tester": "*"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0",
+    "webcomponentsjs": "^v1.0.0"
+  }
 }
