@@ -1,7 +1,4 @@
-_[Demo and API Docs](http://collaborne.github.io/iron-time-behavior)_
-
-
-iron-time-behavior [![Bower version](https://badge.fury.io/bo/iron-time-behavior.svg)](http://badge.fury.io/bo/iron-time-behavior) [![Travis state](https://travis-ci.org/Collaborne/iron-time-behavior.svg?branch=master)](https://travis-ci.org/Collaborne/iron-time-behavior)
+iron-time-behavior [![Bower version](https://badge.fury.io/bo/iron-time-behavior.svg)](http://badge.fury.io/bo/iron-time-behavior) [![Travis state](https://travis-ci.org/Collaborne/iron-time-behavior.svg?branch=master)](https://travis-ci.org/Collaborne/iron-time-behavior) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/Collaborne/iron-time-behavior)
 =========
 
 Polymer 1.x behavior that provides time-from-now string, e.g. today, yesterday, this week, earlier.
