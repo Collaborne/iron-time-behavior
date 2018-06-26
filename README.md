@@ -1,4 +1,7 @@
 iron-time-behavior [![Bower version](https://badge.fury.io/bo/iron-time-behavior.svg)](http://badge.fury.io/bo/iron-time-behavior) [![Travis state](https://travis-ci.org/Collaborne/iron-time-behavior.svg?branch=master)](https://travis-ci.org/Collaborne/iron-time-behavior) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/Collaborne/iron-time-behavior)
+
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/Collaborneiron-time-behavior)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/Collaborneiron-time-behavior.svg)](https://vaadin.com/directory/component/Collaborneiron-time-behavior)
 =========
 
 Polymer hybrid behavior that provides time-from-now string, e.g. today, yesterday, this week, earlier.
