@@ -3,7 +3,7 @@
   "authors": [
     "collaborne"
   ],
-  "description": "Polymer behavior that provides time-from-now string, e.g. today, yesterday, this week, ealier",
+  "description": "Polymer behavior that provides time-from-now string, e.g. today, yesterday, this week, earlier",
   "main": "iron-time-from-now-behavior.html",
   "keywords": [
     "web-components",
