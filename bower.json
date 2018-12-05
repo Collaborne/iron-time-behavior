@@ -18,7 +18,7 @@
     "**/.*"
   ],
   "dependencies": {
-    "moment-element": "Collaborne/moment-element#fix/remove-unnecessary-dependencies",
+    "moment-element": "^3.0.1",
     "polymer": "Polymer/polymer#^2.0.0"
   },
   "devDependencies": {
